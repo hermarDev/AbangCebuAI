@@ -1,0 +1,166 @@
+/* Details Dialog */
+.details-dialog {
+  max-width: 480px;
+  background: #ffffff;
+  padding: 24px;
+  max-height: calc(100svh - 40px);
+  overflow-y: auto;
+  border-radius: 20px;
+}
+
+.details-dialog .room-art {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.details-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.details-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.details-basis {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.details-description {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--foreground);
+  margin: 0;
+}
+
+/* Cebu Quick Facts Grid */
+.details-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.spec-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
+}
+
+.spec-card svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.spec-title {
+  font-size: 10px;
+  font-weight: 750;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.spec-val {
+  font-size: 12px;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+/* Move-in Estimator Box */
+.details-movein-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #166534;
+}
+
+.movein-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.movein-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.movein-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.movein-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 13px;
+  border-top: 1px dashed #86efac;
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.details-amenities h3 {
+  font-size: 13px;
+  font-weight: 750;
+  margin: 0 0 6px;
+}
+
+.amenities-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.amenity-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: var(--muted);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.details-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.details-disclaimer p {
+  margin: 0;
+}

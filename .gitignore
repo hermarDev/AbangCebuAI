@@ -1,0 +1,25 @@
+# Local link to the Obsidian vault; notes are maintained outside this repository.
+/second-brain
+
+# Secrets and local environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Dependencies, build output, and generated test artifacts
+node_modules/
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+*.log
+supabase/.temp/
+supabase/.branches/
+.DS_Store
+/public/maplibre/

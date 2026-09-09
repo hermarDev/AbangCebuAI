@@ -1,0 +1,297 @@
+/* Responsive / Mobile layout */
+/* Responsive / Mobile layout (Google Maps Mobile style) */
+@media (max-width: 768px) {
+  .site-header {
+    position: absolute;
+    top: max(10px, env(safe-area-inset-top));
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-width: none;
+    height: 52px;
+    padding: 0 6px 0 8px;
+    gap: 8px;
+    border-radius: var(--radius-pill);
+    z-index: var(--z-header);
+    justify-content: flex-start;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .brand {
+    display: none !important;
+  }
+  .menu-button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+  .profile-button {
+    display: flex !important;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    border-radius: var(--radius-pill);
+    box-shadow: none;
+    flex-shrink: 0;
+  }
+  .profile-label {
+    display: none;
+  }
+  .search-bar {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+  }
+  .search-place-trigger {
+    padding: 4px 8px 4px 6px;
+    gap: 6px;
+    width: 100%;
+    min-height: 44px;
+    border-color: #e2e8f0;
+  }
+  .search-input-field {
+    font-size: 13px;
+    padding: 0 4px;
+  }
+  .site-header[data-location-open="true"] .header-left,
+  .site-header[data-location-open="true"] .header-right {
+    display: none;
+  }
+  .site-header[data-location-open="true"] .search-bar { gap: 8px; }
+  .site-header[data-location-open="true"] .search-place-trigger { flex: 1; min-width: 0; min-height: 44px; }
+  .site-header[data-location-open="true"] .search-input-field { font-size: 16px; }
+  .search-mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--foreground);
+  }
+  .search-trigger-pin-wrap {
+    width: 28px;
+    height: 28px;
+  }
+  .search-trigger-text {
+    font-size: 12px;
+    font-weight: 650;
+  }
+  .search-popover-content {
+    width: min(360px, calc(100vw - 20px));
+    max-width: calc(100vw - 20px);
+    border-radius: var(--radius-xl);
+    padding: 0;
+  }
+  .header-right {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .filter-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 15px;
+    height: 15px;
+    font-size: 8.5px;
+    border: 1.5px solid #ffffff;
+  }
+
+  /* Quick Filters Bar on Mobile */
+  .quick-filters-bar {
+    top: calc(max(10px, env(safe-area-inset-top)) + 58px);
+    left: 10px;
+    right: 10px;
+    gap: 6px;
+    z-index: var(--z-map-control);
+  }
+  .quick-filters-scroll {
+    flex: 1 1 auto;
+    gap: 6px;
+    scroll-padding-inline: 2px;
+  }
+  .quick-filter-chip {
+    min-height: 44px;
+    height: 44px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+  .quick-filter-all-btn {
+    margin-left: 2px;
+    padding-inline: 12px;
+    box-shadow: 0 3px 12px rgba(0, 72, 153, 0.16);
+  }
+  .quick-filter-all-label-desktop {
+    display: none;
+  }
+  .quick-filter-all-label-mobile {
+    display: inline;
+  }
+
+  .finder-app[data-mobile-expanded="true"] .quick-filters-bar {
+    opacity: 0;
+    pointer-events: none !important;
+    visibility: hidden;
+  }
+
+  /* Full Bleed Explore Layout */
+  .explore-layout {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .map-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    order: unset;
+  }
+
+  /* Bottom Results Sheet */
+  .rental-results-rail {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    z-index: var(--z-results);
+    max-height: 220px;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: 0 -4px 24px rgba(0, 50, 120, 0.16);
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .rental-results-rail.is-mobile-expanded {
+    max-height: calc(100svh - 68px);
+    z-index: calc(var(--z-results) + 5);
+  }
+
+  .rental-results-rail.is-mobile-expanded .results-list {
+    padding-bottom: 76px;
+  }
+
+  .results-header {
+    padding: 12px 16px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .results-title-group h2 {
+    font-size: 17px;
+    margin: 2px 0 0;
+  }
+
+  .results-scope-badge {
+    display: none;
+  }
+
+  .mobile-sheet-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Floating Map Actions on Mobile */
+  .search-this-area-overlay {
+    top: calc(max(10px, env(safe-area-inset-top)) + 114px);
+    left: 10px;
+    right: 72px;
+    transform: none;
+    display: flex;
+    justify-content: center;
+  }
+  .search-this-area-btn {
+    max-width: 100%;
+    min-width: 0;
+    height: 44px;
+    min-height: 44px;
+    padding: 5px 6px 5px 12px;
+    gap: 7px;
+    font-size: 11.5px;
+  }
+  .search-this-area-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .search-this-area-detail {
+    height: 32px;
+    padding: 0 8px;
+    font-size: 10.5px;
+  }
+  .map-surface .maplibregl-ctrl-bottom-right {
+    top: calc(max(10px, env(safe-area-inset-top)) + 170px);
+    bottom: auto;
+    right: 14px;
+  }
+
+  .map-floating-actions {
+    top: calc(max(10px, env(safe-area-inset-top)) + 114px);
+    bottom: auto;
+    right: 14px;
+  }
+
+  /* Chat Launcher on mobile:
+     When results sheet is peeking: float cleanly above sheet on the map surface.
+     When results sheet is expanded: dock at bottom right above the expanded list */
+  .chat-launcher {
+    bottom: 236px;
+    right: 14px;
+    box-shadow: 0 4px 16px rgba(0, 50, 120, 0.22);
+    transition: bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease, opacity 0.2s ease;
+  }
+
+  .chat-launcher[data-chat-open="true"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.85) !important;
+  }
+
+  .chat-dialog {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 85dvh !important;
+    max-height: 85dvh !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .finder-app[data-mobile-expanded="true"] .chat-launcher {
+    bottom: max(16px, env(safe-area-inset-bottom));
+    right: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

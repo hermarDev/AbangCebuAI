@@ -1,0 +1,202 @@
+[
+  {
+    "id": "aclc-mandaue",
+    "name": "ACLC College of Mandaue",
+    "aliases": ["aclc", "aclc college", "aclc mandaue", "aclc maguikay", "ama computer learning center"],
+    "category": "College",
+    "city": "Mandaue City",
+    "barangay": "Maguikay",
+    "coordinates": [123.9388597, 10.3347378],
+    "displayName": "ACLC, M.C. Briones Street, Maguikay, Mandaue, Central Visayas, 6014, Philippines"
+  },
+  {
+    "id": "usc-talamban",
+    "name": "USC Talamban Campus (TC)",
+    "aliases": ["usc tc", "usc talamban", "talamban campus", "san carlos talamban", "tc"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Talamban",
+    "coordinates": [123.9071538, 10.3559376],
+    "displayName": "University of San Carlos Talamban Campus, King's Road North, Doña Rita Village, Banilad, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "usc-main",
+    "name": "USC Main Campus",
+    "aliases": ["usc main", "usc downtown", "san carlos main", "p del rosario"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Kamagayan",
+    "coordinates": [123.8985801, 10.3004111],
+    "displayName": "University of San Carlos, P. del Rosario Street, Kamagayan, Calamba, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "uc-main",
+    "name": "UC Main Campus",
+    "aliases": ["uc main", "uc sanciangko", "university of cebu main"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Kalubihan",
+    "coordinates": [123.896292, 10.297446],
+    "displayName": "University of Cebu, Sanciangko Street, Kabulihan, Kalubihan, Calamba, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "uc-banilad",
+    "name": "UC Banilad",
+    "aliases": ["uc banilad", "ucb", "university of cebu banilad"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Apas / Banilad",
+    "coordinates": [123.9114713, 10.3381541],
+    "displayName": "University of Cebu Banilad, Governor M. Cuenco Avenue, Baca, Apas, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "uc-lm",
+    "name": "UC Lapu-Lapu & Mandaue (UCLM)",
+    "aliases": ["uclm", "uc mandaue", "uc lm", "uc lapu lapu mandaue"],
+    "category": "University",
+    "city": "Mandaue City",
+    "barangay": "Looc",
+    "coordinates": [123.9547606, 10.3264397],
+    "displayName": "University of Cebu - Lapu-Lapu Mandaue Campus, A.C. Cortes Avenue, Ouano Compound, Looc, Mandaue, Central Visayas, 6014, Philippines"
+  },
+  {
+    "id": "cdu-mandaue",
+    "name": "Cebu Doctors University (CDU)",
+    "aliases": ["cdu", "cebu doctors", "cdu mandaue", "cebu doc", "north reclamation cdu"],
+    "category": "University",
+    "city": "Mandaue City",
+    "barangay": "Subangdaku",
+    "coordinates": [123.9331453, 10.319985],
+    "displayName": "Cebu Doctors University, 1, Potenciano Larrazabal Avenue, City South Special Economic Administrative Zone, Mandaue, Central Visayas, 6014, Philippines"
+  },
+  {
+    "id": "cnu-osmena",
+    "name": "Cebu Normal University (CNU)",
+    "aliases": ["cnu", "cebu normal", "normal university", "osmena blvd", "normal"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Sambag I",
+    "coordinates": [123.8967853, 10.3016486],
+    "displayName": "Cebu Normal University, Osmeña Boulevard, Kabulihan, Sambag I, Calamba, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "up-cebu",
+    "name": "University of the Philippines Cebu (UP Cebu)",
+    "aliases": ["up", "up cebu", "up lahug", "university of the philippines"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Camputhaw",
+    "coordinates": [123.8988885, 10.3225319],
+    "displayName": "University of the Philippines Cebu, Gorordo Avenue, Purok 4, Camputhaw, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "swu-phinma",
+    "name": "Southwestern University PHINMA (SWU)",
+    "aliases": ["swu", "southwestern", "swu phinma", "urgello", "swu urgello"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "Sambag II",
+    "coordinates": [123.8888932, 10.3040724],
+    "displayName": "Southwestern University PHINMA, M. H. Aznar Road, Pailob, Sambag II, Calamba, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "cit-u",
+    "name": "CIT-University",
+    "aliases": ["cit", "cit-u", "cit university", "technologian", "n bacalso"],
+    "category": "University",
+    "city": "Cebu City",
+    "barangay": "San Nicolas Proper",
+    "coordinates": [123.8804425, 10.2957783],
+    "displayName": "Cebu Institute of Technology - University, Natalio Bacalso Avenue, Tres de Abril Village, San Nicolas Proper, Duljo Fatima, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "velez-college",
+    "name": "Velez College & CIM",
+    "aliases": ["velez", "velez college", "cim", "f ramos"],
+    "category": "College",
+    "city": "Cebu City",
+    "barangay": "Santa Cruz",
+    "coordinates": [123.8972661, 10.3079726],
+    "displayName": "Velez College, 41, F. Ramos Street, Santa Cruz, Camputhaw, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "cebu-it-park",
+    "name": "Cebu IT Park",
+    "aliases": ["it park", "cebu it park", "lahug it park", "apas it park", "the walk", "central bloc"],
+    "category": "Business Hub",
+    "city": "Cebu City",
+    "barangay": "Apas",
+    "coordinates": [123.9068258, 10.3307983],
+    "displayName": "Cebu I.T. Park, Apas, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "cebu-business-park",
+    "name": "Cebu Business Park / Ayala Center",
+    "aliases": ["ayala", "ayala center cebu", "cebu business park", "cbp", "ayala cebu"],
+    "category": "Business Hub",
+    "city": "Cebu City",
+    "barangay": "Luz",
+    "coordinates": [123.904585, 10.3178116],
+    "displayName": "Ayala Center Cebu, Cardinal Rosales Avenue, Cebu Business Park, Luz, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "fuente-osmena",
+    "name": "Fuente Osmeña Circle",
+    "aliases": ["fuente", "fuente circle", "fuente osmena", "rotunda", "robinsons cybergate"],
+    "category": "Landmark",
+    "city": "Cebu City",
+    "barangay": "Santa Cruz",
+    "coordinates": [123.8924812, 10.3099725],
+    "displayName": "Fuente Osmeña Circle, Santa Cruz, Camputhaw, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "sm-city-cebu",
+    "name": "SM City Cebu",
+    "aliases": ["sm city", "sm cebu", "sm mabolo", "north reclamation", "sm main"],
+    "category": "Commercial",
+    "city": "Cebu City",
+    "barangay": "Carreta",
+    "coordinates": [123.91867, 10.31179],
+    "displayName": "SM City Cebu, Juan Luna Avenue, Carreta, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "sm-seaside",
+    "name": "SM Seaside City Cebu",
+    "aliases": ["sm seaside", "seaside", "srp sm", "south road properties"],
+    "category": "Commercial",
+    "city": "Cebu City",
+    "barangay": "South Road Properties",
+    "coordinates": [123.8824099, 10.2818233],
+    "displayName": "SM Seaside City Cebu, Cebu South Coastal Road, Cebu South Road Properties, Duljo Fatima, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "colon-street",
+    "name": "Colon Street / Downtown",
+    "aliases": ["colon", "colon street", "downtown", "metro colon", "downtown cebu"],
+    "category": "Downtown",
+    "city": "Cebu City",
+    "barangay": "Pari-an",
+    "coordinates": [123.9034906, 10.2979135],
+    "displayName": "Colon Street, Pari-an, Carreta, Cebu City, Central Visayas, 6000, Philippines"
+  },
+  {
+    "id": "oakridge-mandaue",
+    "name": "Oakridge Business Park",
+    "aliases": ["oakridge", "oakridge business park", "as fortuna"],
+    "category": "Business Hub",
+    "city": "Mandaue City",
+    "barangay": "Banilad",
+    "coordinates": [123.9235, 10.3395],
+    "displayName": "Oakridge Business Park, 880 A. S. Fortuna St, Banilad, Mandaue City, 6014 Cebu"
+  },
+  {
+    "id": "mactan-newtown",
+    "name": "The Mactan Newtown",
+    "aliases": ["mactan newtown", "newtown", "mactan it hub"],
+    "category": "Business Hub",
+    "city": "Lapu-Lapu City",
+    "barangay": "Mactan",
+    "coordinates": [124.0142683, 10.3100044],
+    "displayName": "The Mactan Newtown, Newtown Boulevard, Mactan, Lapu-Lapu City, 6015 Cebu"
+  }
+]

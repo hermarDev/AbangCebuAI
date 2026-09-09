@@ -1,0 +1,114 @@
+/* Account Dialog ("Welcome to AbangCebu") */
+.account-dialog {
+  max-width: 400px !important;
+  background: #ffffff !important;
+  border-radius: var(--radius-xl) !important;
+  padding: 24px !important;
+  box-shadow: 0 16px 40px rgba(0, 50, 120, 0.16) !important;
+  z-index: var(--z-modal) !important;
+}
+.account-avatar-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background: #eff6ff;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.account-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+.account-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.account-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid var(--border);
+}
+.account-auth-btn.is-google {
+  background: #ffffff;
+  color: var(--foreground);
+  border-color: #cbd5e1;
+}
+.account-auth-btn.is-google:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.account-auth-btn.is-email {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+.account-auth-btn.is-email:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(0, 102, 213, 0.25);
+}
+.account-dialog-notice {
+  padding: 10px 12px;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.account-dialog-notice p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+.account-dialog-landlord-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-md);
+  background: #eff6ff;
+  text-align: left;
+}
+.account-landlord-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  color: var(--primary);
+}
+.account-landlord-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  line-height: 1.45;
+}
+.account-landlord-copy strong {
+  font-size: 13px;
+  color: var(--foreground);
+}
+.account-landlord-copy span {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
