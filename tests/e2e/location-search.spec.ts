@@ -46,7 +46,7 @@ test("online search needs an explicit choice and preserves radius and budget", a
   await expect(page).toHaveURL(/lng=123.8795782&lat=10.28127&radius=5000/);
   await expect(page).toHaveURL(/max=2500/);
   await expect(input).toHaveAttribute("placeholder", "SM Seaside City Cebu, Mambaling, Cebu City");
-  await expect(page.getByRole("button", { name: "Change search radius" })).toHaveText("Within 5 km");
+  await expect(page.getByRole("button", { name: /Search area/ })).toContainText("5 km");
 });
 
 test("failed online search keeps preset browsing and does not move the search", async ({ page }) => {
@@ -96,12 +96,13 @@ test("a superseded lookup cannot replace the user's new query", async ({ page })
 test("fixed radius survives map movement; map mode commits only on request", async ({ page }) => {
   await page.goto("/?scope=place-radius&lng=123.907&lat=10.328&radius=1249&place=Chosen+point&max=2500");
   await expect(page.locator('[data-map-state="ready"]')).toBeVisible();
-  const radius = page.getByRole("button", { name: "Change search radius" });
-  await expect(radius).toHaveText("Within 1.249 km");
+  const radius = page.getByRole("button", { name: /Search area/ });
+  await expect(radius).toContainText("1.249 km");
   await radius.click();
-  await expect(page.getByLabel("Search radius", { exact: true })).toHaveValue("1249");
-  await page.getByLabel("Search radius", { exact: true }).selectOption("5000");
-  await page.getByRole("button", { name: "Apply radius" }).click();
+  await expect(page.getByRole("dialog").locator("select")).toHaveCount(0);
+  await expect(page.getByRole("radio", { name: "1.249 km" })).toBeChecked();
+  await page.getByRole("radio", { name: "5 km" }).check();
+  await page.getByRole("button", { name: "Apply search area" }).click();
   await expect(page).toHaveURL(/radius=5000/);
   const map = page.locator(".maplibregl-canvas");
   await map.focus();
@@ -109,8 +110,9 @@ test("fixed radius survives map movement; map mode commits only on request", asy
   await expect(page.getByRole("button", { name: /Search this area/ })).toHaveCount(0);
   await expect(page).toHaveURL(/lng=123.907&lat=10.328&radius=5000/);
   await radius.click();
-  await page.getByLabel("Search area behavior").selectOption("map-radius");
-  await page.getByRole("button", { name: "Apply radius" }).click();
+  await page.getByRole("radio", { name: /Follow the map/ }).check();
+  await expect(page.getByRole("radio", { name: "5 km" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Apply search area" }).click();
   await expect(page).toHaveURL(/scope=map-radius/);
   await map.focus();
   await map.press("ArrowLeft");

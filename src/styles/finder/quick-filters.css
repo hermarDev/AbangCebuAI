@@ -1,84 +1,365 @@
-/* Quick Filters Bar (Floating Google Maps style) */
+/* Compact refinement dock over the map */
 .quick-filters-bar {
   position: absolute;
   top: 72px;
   left: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow: visible;
   z-index: var(--z-map-control);
   pointer-events: none;
-  padding: 2px 0;
 }
 
-.quick-filters-scroll {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+.quick-filter-dock {
   pointer-events: auto;
-}
-
-.quick-filters-scroll::-webkit-scrollbar {
-  display: none;
+  display: grid;
+  grid-template-columns: 1.08fr 1fr 1fr 0.92fr;
+  width: min(500px, calc(100vw - 32px));
+  min-height: 54px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.62);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 22px rgba(15, 23, 42, 0.13), 0 1px 3px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .quick-filter-chip {
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #cbd5e1;
-  color: #334155;
-  font-size: 12px;
-  font-weight: 650;
-  box-shadow: 0 2px 8px rgba(0, 50, 120, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 54px;
+  padding: 7px 10px 6px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #475569;
   cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
+  transition: background-color 150ms ease, color 150ms ease;
 }
+
+.quick-filter-chip + .quick-filter-chip {
+  border-left: 1px solid #e2e8f0;
+}
+
 .quick-filter-chip:hover {
-  background: #ffffff;
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 102, 213, 0.15);
+  background: #f8fafc;
 }
 
 .quick-filter-chip:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--ring);
+  outline-offset: -3px;
+}
+
+.quick-filter-label,
+.quick-filter-value {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.quick-filter-label {
+  gap: 4px;
+  color: #64748b;
+  font-size: 9.5px;
+  font-weight: 750;
+  letter-spacing: 0.035em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.quick-filter-value {
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.25;
+}
+
+.quick-filter-chip.has-value .quick-filter-label,
+.quick-filter-chip.has-value .quick-filter-value {
+  color: var(--primary);
+}
+
+.quick-filter-chip.has-value {
+  background: #eff6ff;
+}
+
+.quick-filter-all-btn {
+  padding-right: 12px;
+}
+
+.quick-filter-all-btn .filter-badge {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 1.5px solid #ffffff;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* Focused category dialogs */
+.quick-choice-dialog {
+  width: min(440px, calc(100vw - 24px));
+  max-width: 440px;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24), 0 4px 14px rgba(15, 23, 42, 0.10);
+}
+
+.radius-dialog {
+  width: min(520px, calc(100vw - 24px));
+  max-width: 520px;
+}
+
+.quick-choice-dialog [data-slot="dialog-title"] {
+  padding-right: 36px;
+  color: #0f172a;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.quick-choice-dialog [data-slot="dialog-description"] {
+  max-width: 46ch;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.quick-choice-dialog form,
+.quick-choice-fieldset {
+  display: grid;
+  gap: 14px;
+}
+
+.quick-choice-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.quick-choice-fieldset > legend,
+.quick-choice-legend-row legend {
+  color: #334155;
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.02em;
+}
+
+.quick-choice-list,
+.search-mode-cards {
+  display: grid;
+  gap: 8px;
+}
+
+.quick-choice-option,
+.search-mode-card {
+  position: relative;
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 13px;
+  border: 1px solid #d7e0eb;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.quick-choice-option:hover,
+.search-mode-card:hover {
+  border-color: #93c5fd;
+  background: #f8fbff;
+}
+
+.quick-choice-option:has(input:checked),
+.search-mode-card:has(input:checked) {
+  border-color: #60a5fa;
+  background: #eff6ff;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.12);
+  color: #0f4c9c;
+}
+
+.quick-choice-option:has(input:focus-visible),
+.search-mode-card:has(input:focus-visible),
+.radius-choice:has(input:focus-visible) {
   outline: 3px solid var(--ring);
   outline-offset: 2px;
 }
 
-.quick-filter-chip.is-active {
-  background: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
-  box-shadow: 0 4px 14px rgba(0, 102, 213, 0.30);
+.quick-choice-option input,
+.search-mode-card input,
+.radius-choice input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  accent-color: var(--primary);
 }
 
-.quick-filter-all-btn {
-  position: relative;
-  pointer-events: auto;
-  flex-shrink: 0;
-  border-color: rgba(0, 102, 213, 0.35);
+.quick-choice-option span {
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.quick-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quick-choice-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.quick-choice-clear {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 6px;
+  border: 0;
+  background: transparent;
   color: var(--primary);
-  font-weight: 750;
+  font-size: 12px;
+  font-weight: 720;
 }
 
-.quick-filter-all-label-mobile {
-  display: none;
+.quick-choice-clear:disabled {
+  color: #94a3b8;
+  cursor: default;
+}
+
+.search-mode-card {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  min-height: 74px;
+}
+
+.search-mode-card > svg {
+  color: #64748b;
+}
+
+.search-mode-card:has(input:checked) > svg {
+  color: var(--primary);
+}
+
+.search-mode-card span {
+  display: grid;
+  gap: 3px;
+}
+
+.search-mode-card strong {
+  color: #1e293b;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.search-mode-card small {
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.radius-distance-fieldset {
+  padding-top: 2px;
+}
+
+.radius-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.radius-choice {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.radius-choice input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.radius-choice span {
+  display: grid;
+  min-height: 44px;
+  padding: 5px;
+  place-items: center;
+  border: 1px solid #d7e0eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.radius-choice input:checked + span {
+  border-color: var(--primary);
+  background: #eff6ff;
+  color: var(--primary);
+}
+
+.radius-field-hint {
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.radius-mode-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 13px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.radius-mode-note svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--primary);
+}
+
+.radius-mode-note p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.quick-choice-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.quick-choice-actions > button {
+  min-height: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-filter-chip,
+  .quick-choice-option,
+  .search-mode-card {
+    transition: none;
+  }
 }

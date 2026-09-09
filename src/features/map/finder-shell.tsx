@@ -7,7 +7,7 @@ import { User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { MapFocus, MapView, RentalResult, SearchScope } from "@/contracts/preview";
 import type { PlaceResult } from "@/contracts/places";
-import { DEFAULT_RENTAL_FILTERS, type RentalFilters } from "@/contracts/rental-filters";
+import { DEFAULT_RENTAL_FILTERS, type PropertyType, type RentalFilters } from "@/contracts/rental-filters";
 import { SAMPLE_RENTALS } from "@/features/listings/preview-rentals";
 import { searchPreviewRentals } from "@/features/search/preview-search";
 import { closePreviewRental, openPreviewRental } from "@/features/search/preview-url";
@@ -72,6 +72,13 @@ export function FinderShell() {
     return count;
   }, [filters]);
 
+  const additionalFilterCount = useMemo(() => {
+    const summarizedFilterCount =
+      (filters.maxPrice !== null && filters.maxPrice !== undefined ? 1 : 0) +
+      (filters.propertyTypes.length > 0 ? 1 : 0);
+    return Math.max(0, activeFilterCount - summarizedFilterCount);
+  }, [activeFilterCount, filters.maxPrice, filters.propertyTypes.length]);
+
   const handleHoverRental = useCallback((id: string | null) => {
     setHoveredId(id);
     if (id) {
@@ -121,20 +128,12 @@ export function FinderShell() {
     writeRentalQuery(scope, DEFAULT_RENTAL_FILTERS);
   }, [scope]);
 
-  // Quick filter toggle handler (category chips)
-  const handleToggleQuickFilter = useCallback((key: "budget2500" | "room" | "bedspace" | "wifi") => {
-    const nextFilters: RentalFilters = { ...filters };
-    if (key === "budget2500") nextFilters.maxPrice = filters.maxPrice === 2500 ? null : 2500;
-    else if (key === "room") {
-      const hasRoom = filters.propertyTypes.includes("private_room");
-      nextFilters.propertyTypes = hasRoom ? [] : ["private_room"];
-    } else if (key === "bedspace") {
-      const hasBed = filters.propertyTypes.includes("bedspace");
-      nextFilters.propertyTypes = hasBed ? [] : ["bedspace"];
-    } else if (key === "wifi") {
-      nextFilters.wifiAvailable = !filters.wifiAvailable;
-    }
-    writeRentalQuery(scope, nextFilters);
+  const handleApplyQuickBudget = useCallback((maxPrice: number | null) => {
+    writeRentalQuery(scope, { ...filters, maxPrice });
+  }, [filters, scope]);
+
+  const handleApplyQuickTypes = useCallback((propertyTypes: PropertyType[]) => {
+    writeRentalQuery(scope, { ...filters, propertyTypes });
   }, [filters, scope]);
 
   // Re-center the map on the active search geometry.
@@ -197,9 +196,10 @@ export function FinderShell() {
       <FinderQuickFilters
         scope={scope}
         filters={filters}
-        activeFilterCount={activeFilterCount}
+        additionalFilterCount={additionalFilterCount}
         filterButtonRef={filterButtonRef}
-        onToggleQuickFilter={handleToggleQuickFilter}
+        onApplyBudget={handleApplyQuickBudget}
+        onApplyTypes={handleApplyQuickTypes}
         onOpenFilters={() => setFilterDialogOpen(true)}
         onApplyRadius={handleApplyRadius}
       />

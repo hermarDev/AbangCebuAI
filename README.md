@@ -101,6 +101,24 @@ docker compose -f compose.production.yaml up --build -d app
 docker compose -f compose.production.yaml --profile https up -d
 ```
 
+### Docker Hub (Team Collaboration)
+
+The production Docker image is published to Docker Hub at [`hermardev/abangcebuai`](https://hub.docker.com/r/hermardev/abangcebuai).
+
+```bash
+# 1. Build and push a tagged image (e.g. latest, v0.1.0)
+npm run docker:push                  # builds & pushes hermardev/abangcebuai:latest
+bash scripts/deploy/docker-push.sh v0.1.0 # builds & pushes hermardev/abangcebuai:v0.1.0
+
+# 2. How your teammates pull and run the latest image directly:
+docker pull hermardev/abangcebuai:latest
+docker run -p 3000:3000 hermardev/abangcebuai:latest
+
+# Or pull and run using production Compose:
+docker compose -f compose.production.yaml pull app
+docker compose -f compose.production.yaml up -d app
+```
+
 ---
 
 ## Verification & Testing Suite

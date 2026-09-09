@@ -1,7 +1,7 @@
 name: abangcebu-production
 services:
   app:
-    image: abangcebu-ai:local
+    image: ${APP_IMAGE:-hermardev/abangcebuai:latest}
     build:
       context: .
       target: production

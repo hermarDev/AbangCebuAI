@@ -13,7 +13,9 @@
     "start": "node scripts/start-production.mjs",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "docker:build": "docker build --target production -t hermardev/abangcebuai:latest .",
+    "docker:push": "bash scripts/deploy/docker-push.sh"
   },
   "dependencies": {
     "@ai-sdk/amazon-bedrock": "5.0.76",

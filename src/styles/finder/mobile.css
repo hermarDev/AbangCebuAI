@@ -118,36 +118,83 @@
     top: calc(max(10px, env(safe-area-inset-top)) + 58px);
     left: 10px;
     right: 10px;
-    gap: 6px;
     z-index: var(--z-map-control);
   }
-  .quick-filters-scroll {
-    flex: 1 1 auto;
-    gap: 6px;
-    scroll-padding-inline: 2px;
+  .quick-filter-dock {
+    width: 100%;
+    min-height: 52px;
+    grid-template-columns: 1.04fr 1fr 0.96fr 0.92fr;
+    border-radius: 14px;
   }
   .quick-filter-chip {
-    min-height: 44px;
-    height: 44px;
-    padding: 0 14px;
-    font-size: 12px;
+    min-height: 52px;
+    height: auto;
+    padding: 6px 8px;
   }
   .quick-filter-all-btn {
-    margin-left: 2px;
-    padding-inline: 12px;
-    box-shadow: 0 3px 12px rgba(0, 72, 153, 0.16);
+    margin-left: 0;
+    padding-inline: 8px;
+    box-shadow: none;
   }
-  .quick-filter-all-label-desktop {
-    display: none;
+  .quick-filter-label {
+    font-size: 8.75px;
   }
-  .quick-filter-all-label-mobile {
-    display: inline;
+  .quick-filter-value {
+    font-size: 11px;
   }
 
   .finder-app[data-mobile-expanded="true"] .quick-filters-bar {
     opacity: 0;
     pointer-events: none !important;
     visibility: hidden;
+  }
+
+  .quick-choice-dialog {
+    top: auto !important;
+    right: 0;
+    bottom: 0;
+    left: 0 !important;
+    width: 100%;
+    max-width: none;
+    max-height: min(82dvh, 700px);
+    overflow-y: auto;
+    --tw-translate-x: 0px !important;
+    --tw-translate-y: 0px !important;
+    transform: none !important;
+    translate: none !important;
+    gap: 16px;
+    padding: 22px 18px calc(14px + env(safe-area-inset-bottom));
+    border-radius: 24px 24px 0 0;
+    animation-name: slide-in-from-bottom !important;
+  }
+  .quick-choice-dialog::before {
+    content: "";
+    width: 40px;
+    height: 4px;
+    margin: -10px auto 0;
+    border-radius: 999px;
+    background: #cbd5e1;
+  }
+  .quick-choice-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-choice-option,
+  .search-mode-card {
+    min-height: 52px;
+  }
+  .radius-choice-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .quick-choice-actions {
+    position: sticky;
+    bottom: calc(-14px - env(safe-area-inset-bottom));
+    margin: 2px -18px calc(-14px - env(safe-area-inset-bottom));
+    padding: 12px 18px calc(14px + env(safe-area-inset-bottom));
+    border-top: 1px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.98);
+  }
+  .quick-choice-actions > button {
+    flex: 1 1 0;
   }
 
   /* Full Bleed Explore Layout */
