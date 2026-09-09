@@ -17,7 +17,11 @@ export async function queryRentalsServer(
 ): Promise<RentalResult[]> {
   try {
     // Attempt database query if Supabase is configured
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const hasSupabase = Boolean(
+      process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      (process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+    );
+    if (hasSupabase) {
       const supabase = await createRouteSupabaseClient();
       const centerLng = scope.mode === "viewport"
         ? (scope.bounds.west + scope.bounds.east) / 2

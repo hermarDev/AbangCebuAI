@@ -8,7 +8,7 @@ const supabaseSchema = z.object({
 export function getSupabaseConfig() {
   const result = supabaseSchema.safeParse({
     url: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    key: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    key: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   });
   if (!result.success) {
     // Do not include supplied values in configuration errors.
